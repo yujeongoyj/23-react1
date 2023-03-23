@@ -1,7 +1,7 @@
 ## 23-React3-1 오유정
 
 react : 사용자 인터페이스를 만들기 위한 자바스크립트 라이브러리
-
+https://github.com/soaple/first-met-react-practice/tree/master/src
 ### 2021/3/16 3주차
 
 <리액트의 장점>
