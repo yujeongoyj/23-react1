@@ -16,7 +16,7 @@ https://github.com/soaple/first-met-react-practice/tree/master/src
 - 읽기 전용, 변경 불가함
 - 속성이 다른 엘리먼트를 생성하려면 새로운 props를 컴포넌트에 전달하면 됨
 
-pure 함수 vs impure 함수
+#### pure 함수 vs impure 함수
   pure함수는 인수로 받은 정보가 함수 내부에서도 변하지 않는 함수
   inpure함수는 인수로 받은 정보가 함수 내부에서 변하는 함수
 --------------------------------------------------------------------
