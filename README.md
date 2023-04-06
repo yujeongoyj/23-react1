@@ -12,6 +12,20 @@ https://github.com/soaple/first-met-react-practice/tree/master/src
 
 
 
+#### status란
+- status는 리액트 컴포넌트의 상태를 의미
+- 컴포넌트의 데이터를 의미
+- 컴포넌트의 변경가능한 데이터를 의미
+- status가 변하면 다시 렌더링 되기 때문에 렌더링과 관련된 앖만 status에 포함시켜야 함
+
+#### 6.2 생명주기에 대해 
+- 생명주기는 컴포넌트의 생성 시점, 사용 시점, 종료 시점을 나타냄
+- constructor가 실행 되면서 컴포넌트가 생성
+- 생성 직후 componentDidMount()함수가 호출
+- 컴포넌트가 소멸하기 전까지 여러 번 렌더링
+- 렌더링은 props. setStatus(), forceUpdate()에 의해 상태가 변경되면서 이루어짐
+- 렌더링이 끝나면 conponentWillUnmount() 함수가 호출
+
 -----------------------------------------
 ### 2023/3/30 5주차
 
