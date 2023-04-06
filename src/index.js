@@ -6,6 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import Clock from './chapter04/clock';
 
 
+import Library from './chapter03.Library';
+import Clock from './chapter04/CommentList';
+
+
 setInterval(()=> {
   const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
