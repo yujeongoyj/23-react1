@@ -35,6 +35,87 @@ ex) 서버에서 데이터를 받아오거나 수동으로  Dom을 변경하는 
 (렌더링 중에 작업이 완료될 수 없고 다른 컴포넌트에 영향을 줄 수 있기 때문에)
 - 클래스 컴포넌트의 생명주기 함수와 같은 기능을 하나로 통합한 기능을 제공
 
+- 첫번째 파라미터는 이펙트 함수가 들어가고, 두번째 파라미터로는 의존성 배열
+```  userEffect(이펙트 함수, 의존성 배열); ```
+- 이때 의존성 배열을 생략하는 경우는 업데이트될 때마다 호출된다.
+
+
+```
+useEffect(() => {
+  // 컴포넌트가 마운트 된 이후
+  // 의존성 배열에 있는 변수들 중 하나라도 값이 변경되었을 때 실행됨
+  // 의존성 배열에 빈 배열을 넣으면 마운트와 언마운트시에 단 한번씩만 실행됨
+  // 의존성 배열 생략 시 컴포넌트 업데이트 시마다 실행됨
+
+  return() => {
+    // 컴포넌트가 마운트 해제되기 전에 실행됨
+  }
+}, [의존성 변수1, 의존성 변수2]);
+
+``` 
+#### useMemo
+- useMemo()혹은 Memorized value를 리턴하는 훅
+- 이전 계산값을 갖고 있기 때문에 연산량이 많은 작업의 반복을 피할 수 있음
+- 이 훅은 렌더링이 일어나는 동안 실행됨
+- 예를 들면 useEffect 사이드 이펙트와 같은 것
+
+```
+const memoizedValue = 니seMemo(
+ () => computeExpensiveValue(a, b) // (의존성 변수1, 의존성 변수2)
+ );
+ ```
+
+#### useCallback
+
+- useCallback() 혹은 useMemo()와 유사한 역할
+- 차이점은 값이 아닌 함수를 반환한다는 것
+
+
+#### useRef()
+
+- 래퍼런스란 특정 컴포넌트에 접근할 수 있는 객체를 의미
+- useRef() 훅은 이 래퍼런스 객체를 반환
+- 객체에는 .current라는 속성이 있는데, 이것은 현재 참조하고 있는 엘리먼트를 의미
+``` const refContainer = useRef(초깃값);
+```
+- 이렇게 반환된 레퍼런스 객체는 컴포넌트의 라이프타임 전체에 걸쳐서 유지
+- 즉, 컴포넌트가 마운트 해제 전까지는 계속 유지된다는 의미
+
+#### 훅의 규칙
+
+1. 무조건 최상의 레벨에서만 호출해야 함
+-> 반복문이나 조건문 또는 중첩된 함수 안에서 절대 호출 안됨
+-> 컴포넌트가 렌더링 될 때마다 같은 순서로 호출되어야만 한다.
+2. 리액트 함수 컴포넌트에서만 훅을 호출해야 함
+-> 일반 자바스크립트 함수에서 훅 호출 안된다.
+-> 훅은 리액트 함수 컴포넌트 혹은 직접 만든 커스텀 훅에서만 호출 가능
+
+```
+// isOnline이라는  state에 따라 사용자의 상태가 온라인인지 보여주는 컴포넌트
+ 
+ import React, { useState, useEffect } from "react";
+
+ function UserStatus(props) {
+ const [isOnline, setlsOnline] = useState(nuU);
+
+ useEffect(() => {
+ function handleStatusChange(status) {
+ setIsOnline(status.isOnline);
+ }
+
+ ServerAPI.subscribeUserStatus(props.user.id, handleStatusChange);
+ return () => {
+ ServerAPI.니nsubscribeUserStatus(props.user.id, handleStatusChange);
+ };
+ });
+
+ if (isOnline === null) {
+ return '대기중…';
+ }
+ return isOnline ? '온라인 ' : '오프라인 ';
+ }
+
+```
 
 ---------------------------------------------
 
