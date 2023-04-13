@@ -110,7 +110,7 @@ jsx태그는 자식을 포함할 수 있음
 
 >> * jsx는 내부적으로 xml/tml코드를 자바스크립트로 변환하는 과정을 거치는데 이 변환하는 역할을 하는 것이 리액트의 `` createElemnet()``라는 것이다.
 
-``
+```
 class Hello extends React.Component {
   render() {
     return <div>HeUo {this. props. toWhat}</div>;
@@ -122,7 +122,7 @@ class Hello extends React.Component {
   document.getElementById('root')
  )；
 
-``
+```
    
 
 #### jsx의 장점
