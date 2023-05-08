@@ -8,11 +8,12 @@ https://github.com/soaple/first-met-react-practice/tree/master/src
 #### 리스트와 키란 무엇인가
 - 리스트는 js 변수나 객체를 하나의 변수로 묶어놓은 배열과 같은 것이다
 - 키는 각 객체나 아이템을 구분할 수 있는 고유한 값을 의미
-- 리액트에서는 배열과 키를 사용하는 반복되는 다수의 앨리먼트를 쉽게 렌더링할 수 있음
+- 리액트에서는 배열과 키를 사용하는 반복되는 다수의 앨리먼트를 쉽게 렌더링할 ?수 있음
 
-#### 태그종류
-|File input | 값이 읽기 전용이다.
+
+|태그|설명
 |----------|---------
+|File input | 값이 읽기 전용이다.
 |select | 목록에서 다중으로 선택이 되도록 하기 위해 multiple 속성값을 true로 변경
 |textarea | html에서는 textarea의 childred으로 텍스트가 들어간다. state를 통해 벨루의 attribute변경하여 텍스트 표시
 
