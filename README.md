@@ -11,7 +11,7 @@ https://github.com/soaple/first-met-react-practice/tree/master/src
 - 리액트에서는 배열과 키를 사용하는 반복되는 다수의 앨리먼트를 쉽게 렌더링할 수 있음
 
 #### 태그종류
-?File input | 값이 읽기 전용이다.
+|File input | 값이 읽기 전용이다.
 |select | 목록에서 다중으로 선택이 되도록 하기 위해 multiple 속성값을 true로 변경
 |textarea | html에서는 textarea의 childred으로 텍스트가 들어간다. state를 통해 벨루의 attribute변경하여 텍스트 표시
 
