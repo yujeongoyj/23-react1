@@ -12,6 +12,7 @@ https://github.com/soaple/first-met-react-practice/tree/master/src
 
 #### 태그종류
 |File input | 값이 읽기 전용이다.
+|----------|---------
 |select | 목록에서 다중으로 선택이 되도록 하기 위해 multiple 속성값을 true로 변경
 |textarea | html에서는 textarea의 childred으로 텍스트가 들어간다. state를 통해 벨루의 attribute변경하여 텍스트 표시
 
