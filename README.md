@@ -1,7 +1,114 @@
 ## 23-React3-1 오유정
 
 react : 사용자 인터페이스를 만들기 위한 자바스크립트 라이브러리
-https://github.com/soaple/first-met-react-practice/tree/master/src
+https://github.com/soaple/first-met-react-practice/tree/master/s
+rc
+
+### 2023/5/11 11주차
+
+하위 컴포넌트에서  state 공유하기
+- 물이 끓는지 알려주는 컴포넌트
+```
+ function BoilingVerdict(props) {
+        if (props.celsius >= 100) {
+            return <p>물이 끓습니다.</p>;
+        }
+        return <p>물이 끓지 않습니다.</p>;
+    }
+```
+- Calculator
+```
+    function Calculator(props) {
+        const [temperature, setTemperature] = useState('');
+
+        const handleChange = (event) => {
+            setTemperature(event.target.value);
+        }
+        
+        return (
+            <fieldset>
+                <legend>섭씨 온도를 입력하세요:</legend>
+                <input
+                    value={temperature}
+                    onChange={handleChange} />
+                <BoilingVerdict
+                    celsius={parseFloat(temperature)} />
+            </fieldset>
+        )
+    }
+     
+```
+추출한 컴포넌트 사용하도록 Calculator 컴포넌트 변경
+```
+    function Calculator(props) {
+        return (
+            <div>
+                <TemperatureInut sclae="c" />
+                <TemperatureInut sclae="f" />
+            </div>
+        );
+    }
+```
+
+- 온도 변환 함수
+- TemperatureInput 컴포넌트
+```
+function TemperatureInput(props) {
+    const handleChange = (event) => {
+        props.onTemperatureChange(event.target.value);
+    }
+
+
+    return (
+        <fieldset>
+            <legend>온도를 입력해주세요(단위:{scaleNames[props.scale]}):</legend>
+            <input value = {props.temperature} onChange={handleChange} />
+        </fieldset>
+    )
+}
+```
+- Calculator  컴포넌트 변경하기
+```
+function Calculator(props) {
+    const [temperature, setTemperature] = useState("");
+    const [scale, setScale] = useState("c");
+
+    const handleCelsiusChange = (temperature) => {
+        setTemperature(temperature);
+        setScale("c");
+    };
+
+    const handleFahrenheitChange = (temperature) => {
+        setTemperature(temperature);
+        setScale("f");
+    };
+
+    const celsius =
+        scale === "f" ? tryConvert(temperature, toCelsius) : temperature;
+    const fahrenheit =
+        scale === "c" ? tryConvert(temperature, toFahrenheit) : temperature;
+
+    return (
+        <div>
+            <TemperatureInput
+                scale="c"
+                temperature={celsius}
+                onTemperatureChange={handleCelsiusChange}
+            />
+            <TemperatureInput
+                scale="f"
+                temperature={fahrenheit}
+                onTemperatureChange={handleFahrenheitChange}
+            />
+            <BoilingVerdict celsius={parseFloat(celsius)} />
+        </div>
+    );
+}
+```
+
+
+
+-------------------------------------------------------
 
 ### 2023/5/4 10주차
 
