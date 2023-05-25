@@ -1,8 +1,57 @@
 ## 23-React3-1 오유정
 
 react : 사용자 인터페이스를 만들기 위한 자바스크립트 라이브러리
-https://github.com/soaple/first-met-react-practice/tree/master/s
-rc
+https://github.com/soaple/first-met-react-practice/tree/master/src
+
+### 2023/5/23
+
+#### 컨텍스트 API
+
+1.  React.createContext
+    const MyContext = React.createContext（기본값）;
+
+
+------------------------------------------------------------------
+
+### 2023/5/18 12주차
+
+#### Specialization (특수화, 전문화)
+
+- 웰켐다이얼로그는 다이얼로그의 특별한 케이스이다
+- 범용적인 개념을 구변이 되게 구체화하는 것을 특수화라고 한다
+- 객체지향 언어에서는 상속을 사용하여 특수화를 구현한다.
+- 리액트에서는 합성을 사용하여 특수화를 구현한다.
+
+```
+function Dialog(props) {
+ return (
+ <FancyBorder color="blue">
+ <hl className="Dialog-title">
+ {props.title}
+ </hl>
+ <p className="Dialog-message">
+ {props.message}
+ </p>
+ 소플의처음 만난 리액트
+ </FancyBorder>
+ );
+ }
+
+ function WelcomeDialog(props) {
+ return (
+ <Dialog
+ title="어서 오세요“
+ message="우리 사이트에 방문하신 것을 환영합니다!”
+ />
+ )；
+ }
+```
+
+다음 예와 같이 특수화는 범용적으로 쑬 수 있는 컴포넌트를 만들어 놓고 이를 특수한 목적으로 사용하는 합성 방식이다.
+
+
+
+---------------------------------------------------
 
 ### 2023/5/11 11주차
 
