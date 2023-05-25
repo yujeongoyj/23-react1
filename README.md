@@ -8,7 +8,54 @@ https://github.com/soaple/first-met-react-practice/tree/master/src
 #### 컨텍스트 API
 
 1.  React.createContext
-    const MyContext = React.createContext（기본값）;
+``` const MyContext = React.createContext（기본값）; ```
+2. Context.Provider
+```  <MyContext.Provider value={ some value }> ```
+3. Class.contextType
+  
+``` class MyClass extends React.Component {
+ componentDidMountO {
+ let value = this.context;
+
+ }
+ componentDidUpdateO {
+ let value = this.context;
+ /* ... */
+ }
+
+componentWillUnmoumt() {
+ let value = this.context;
+ /... *
+ }
+ render() {
+ let value = this.context;
+ /* MyContexto| 값에 따라서 컴포넌트들을 렌더링 /*
+ }
+ }
+ MyClass.contextType = MyContext; ```
+
+ 4. Context.Consumer
+ ```
+  <MyContext .Consumeo
+ {value => /* 컨텍스트의 값에 따라서 컴포넌트들을 렌더링 */}
+ </MyContext.Consumer>  
+ ```
+
+ #### userContext
+
+- 함수형 컴포넌트에서 컨텍스트를 사용하기 위해 컴포넌트를 매번  Consumer 컴포넌트로 감싸주는 것보다 Hook을 사용하면 됨
+
+- useContext()  또는 React.createContext() 함수 호출로 생성된 컨텍스트 객체를 인자로 받아서 현재 컨텍스트의 값을 리턴한다
+
+
+```
+function MyComponent(props) {
+ const value = useContext(MyContext);
+
+ return (
+
+ )
+ } ```
 
 
 ------------------------------------------------------------------
